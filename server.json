@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.mcp-dir/pncp-mcp",
+  "title": "PNCP",
+  "description": "Search Brazilian government tenders and public procurement (PNCP): find notices and auctions by keyw",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/mcp-dir/pncp-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.mcp.ai/p_pncp"
+    }
+  ]
+}

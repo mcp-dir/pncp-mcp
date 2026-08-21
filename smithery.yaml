@@ -1,0 +1,34 @@
+# Smithery configuration for PNCP
+# Schema: https://smithery.ai/docs/build/project-config
+# Remote HTTP MCP — server hosted at https://api.mcp.ai/p_pncp
+
+name: pncp-mcp
+displayName: "PNCP"
+description: >
+  Consulta de licitações e contratações públicas no Brasil (PNCP): busca de editais e pregões por palavra-chave, estado e modalidade, oportunidades com filtro de faixa de valor, detalhe da contratação com itens e preços, documentos do edital (link do PDF e texto), contratos, atas de registro de preços e planejamento anual. Hospedado pela plataforma, sem credenciais.
+
+version: 0.1.0
+license: MIT
+homepage: https://github.com/mcp-dir/pncp-mcp
+repository: https://github.com/mcp-dir/pncp-mcp
+
+tags:
+  - pncp
+  - brazil
+  - med
+  - horizontal
+  - read-only
+
+# Remote HTTP MCP — sem startCommand local (servidor já hospedado)
+startCommand:
+  type: http
+  url: https://api.mcp.ai/p_pncp
+
+auth:
+  type: oauth2
+  resourceMetadataUrl: https://api.mcp.ai/p_pncp/.well-known/oauth-protected-resource
+  fallback:
+    type: agent-auth
+    description: >
+      Para clientes sem OAuth 2.1. O agente expõe uma tool authenticate(token).
+      Usuário gera o JWT em https://app.mcp.ai/agent-auth e cola no chat.
